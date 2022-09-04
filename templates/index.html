@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block body %}
+<body>
+	<br></br>
+	<div class="container">
+		<div class="row">
+		<div class="col-lg-5">
+		<div class="accordion" id ="accordionMain">
+
+					{% for game in games %}
+					<div class="accordion-item">
+						<h2 class = "accordion-header" id = "{{game['HOME']['triCode']}}">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{game['HOME']['triCode']}}" aria-expanded="true" aria-controls="{{game['HOME']['triCode']}}">
+								{{game['HOME']['triCode']}} vs {{game['AWAY']['triCode']}}
+							</button>
+						</h2>
+						<div id="{{game['HOME']['triCode']}}" class="accordion-collapse show" aria-labelledby="{{game['HOME']['triCode']}}" data-bs-parent="#accordionMain">
+							<div class="accordion-body">
+								<div class="row justify-content-between">
+									<div class="col-4">
+										<div class="col-xs-2">
+										{{game['HOME']['triCode']}} - {{game['HOME']['score']}}
+										</div>
+										<div class="col-xs-2">
+										Record: {{game['HOME']['win']}} - {{game['HOME']['loss']}}
+										</div>
+									</div>
+									<div class="col-4 text-center">
+										<div class="col-xs-2">
+											<strong>VS.</strong>
+										</div>
+										<div class="col-xs-2">
+										{% if not game['time_remaining']%}
+											<strong>Final</strong>
+										{% else %}
+											<div class="col-xs-2">
+												{{game['time_remaining']}}
+											</div>
+											<div class="col-xs-2">
+												Quarter : {{game['quarter']['current']}}
+											</div>
+										{% endif %}
+										</div>
+									</div>
+									<div class="col-4">
+										<div class="col-xs-2">
+										{{game['AWAY']['triCode']}} - {{game['AWAY']['score']}}
+										</div>
+										<div class="col-xs-2">
+										Record: {{game['AWAY']['win']}} - {{game['AWAY']['loss']}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %} 
+		</div>
+		</div>
+		<a href = "/email">
+			<button class = "btn btn-info">Automate Email?</button>
+		</a>
+		</div>
+	</div>
+</body>
+{% endblock %}
