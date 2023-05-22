@@ -9,20 +9,20 @@
 
 					{% for game in games %}
 					<div class="accordion-item">
-						<h2 class = "accordion-header" id = "{{game['HOME']['triCode']}}">
-							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{game['HOME']['triCode']}}" aria-expanded="true" aria-controls="{{game['HOME']['triCode']}}">
-								{{game['HOME']['triCode']}} vs {{game['AWAY']['triCode']}}
+						<h2 class = "accordion-header" id = "{{game['HOME']['teamTricode']}}">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{game['HOME']['teamTricode']}}" aria-expanded="true" aria-controls="{{game['HOME']['teamTricode']}}">
+								{{game['HOME']['teamTricode']}} vs {{game['AWAY']['teamTricode']}}
 							</button>
 						</h2>
-						<div id="{{game['HOME']['triCode']}}" class="accordion-collapse show" aria-labelledby="{{game['HOME']['triCode']}}" data-bs-parent="#accordionMain">
+						<div id="{{game['HOME']['teamTricode']}}" class="accordion-collapse show" aria-labelledby="{{game['HOME']['teamTricode']}}" data-bs-parent="#accordionMain">
 							<div class="accordion-body">
 								<div class="row justify-content-between">
 									<div class="col-4">
 										<div class="col-xs-2">
-										{{game['HOME']['triCode']}} - {{game['HOME']['score']}}
+										{{game['HOME']['teamTricode']}} - {{game['HOME']['score']}}
 										</div>
 										<div class="col-xs-2">
-										Record: {{game['HOME']['win']}} - {{game['HOME']['loss']}}
+										Record: {{game['HOME']['wins']}} - {{game['HOME']['losses']}}
 										</div>
 									</div>
 									<div class="col-4 text-center">
@@ -37,17 +37,17 @@
 												{{game['time_remaining']}}
 											</div>
 											<div class="col-xs-2">
-												Quarter : {{game['quarter']['current']}}
+												Quarter : {{game['quarter']}}
 											</div>
 										{% endif %}
 										</div>
 									</div>
 									<div class="col-4">
 										<div class="col-xs-2">
-										{{game['AWAY']['triCode']}} - {{game['AWAY']['score']}}
+										{{game['AWAY']['teamTricode']}} - {{game['AWAY']['score']}}
 										</div>
 										<div class="col-xs-2">
-										Record: {{game['AWAY']['win']}} - {{game['AWAY']['loss']}}
+										Record: {{game['AWAY']['wins']}} - {{game['AWAY']['losses']}}
 										</div>
 									</div>
 								</div>
@@ -57,8 +57,8 @@
 					{% endfor %} 
 		</div>
 		</div>
-		<a href = "/email">
-			<button class = "btn btn-info">Automate Email?</button>
+		<a href = "/email" style="margin-block: 15px;">
+			<button class = "btn btn-info">Automate with Emails?</button>
 		</a>
 		</div>
 	</div>
