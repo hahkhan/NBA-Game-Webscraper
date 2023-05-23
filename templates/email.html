@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends "base.html" %}
+{% block body %}
 <body>
     <div class = "container">
         <div class = "row">
             <form method = "POST">
                 <div class = "form-group">
                     <label for = "name">Full Name</label>
-                    <input type = "text" class = "form-control" name="name" placeholder = "Full Name?" required>
+                    <input id="name" type = "text" class = "form-control"  placeholder = "Full Name?" required>
                 </div>
                 <div class = "form-group">
                     <label for = "email">Email Address</label>
-                    <input type = "email" class = "form-control" name="email" placeholder = "Email Address?" required>
+                    <input id="email" type = "email" class = "form-control"  placeholder = "Email Address?" required>
                 </div>
                 <br/>
-                <button type = "submit" class = "btn btn-info">Send Me Automatic Emails!</button>
+                <button type = "submit" class = "btn btn-outline-success">Send Me Automatic Emails!</button>
             </form>
         </div>
     </div>
 </body>
-</html>
+{% endblock %}

@@ -75,8 +75,7 @@ def send_emails():
         msg.body = render_template("index.html", games=get_current_games())
         cur_time = datetime.datetime.now()
         cur_time = cur_time.replace(hour=8, minute=1)
-        date_format = datetime.datetime.strptime(cur_time, "%m/%d/%Y, %H:%M:%S")
-        unix_time = datetime.datetime.timestamp(date_format)
+        unix_time = datetime.datetime.timestamp(cur_time)
         msg.extra_headers = {"X-SMTPAPI": json.dumps({'send_at': unix_time})}
         mail.send(msg)
         return "Sending Email"
